@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CV Analysis</title>
+	 {% load staticfiles %}
+    {% load data_load %}
+    <meta name="description" content="">
+    <link href="{% static 'web/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'web/fonts/cloudicon/cloudicon.css' %}" rel="stylesheet">
+    <link href="{% static 'web/fonts/fontawesome/css/all.css' %}" rel="stylesheet">
+    <link href="{% static 'web/fonts/opensans/opensans.css' %}" rel="stylesheet">
+    <link href="{% static 'web/css/owl.carousel.css' %}" rel="stylesheet">
+    <link href="{% static 'web/css/idangerous.swiper.css' %}" rel="stylesheet">
+    <link href="{% static 'web/css/magnific-popup.css' %}" rel="stylesheet">
+    <link href="{% static 'web/img/favicon.ico' %}" rel="shortcut icon">
+    <link href="{% static 'web/css/filter.css' %}" rel="stylesheet">
+    <link href="{% static 'web/css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'web/css/slick.css' %}" rel="stylesheet">
+    <!-- Custom color styles -->
+    <link href="{% static 'web/css/colors/pink.css' %}" rel="stylesheet" title="pink"/>
+    <link href="{% static 'web/css/colors/blue.css' %}" rel="stylesheet" title="blue"/>
+    <link href="{% static 'web/css/colors/green.css' %}" rel="stylesheet" title="green"/>
+  </head>
+  <body>
+    <div id="spinner-area">
+      <div class="spinner">
+        <div class="double-bounce1"></div>
+        <div class="double-bounce2"></div>
+        <div class="spinner-txt">CV Analysis...</div>
+      </div>
+    </div>
+    <!--
+    *******************************
+    UPLOADED MENU FROM HEADER.HTML
+    *******************************
+    -->
+  <header id="header"> </header>
+  <!--
+  *******************
+  BANNER
+  *******************
+  -->
+
+  <!--
+  *******************
+  KNOWLEDGEBASE
+  *******************
+  -->
+  <section class="config cd-main-content pb-80 blog sec-bg2 cpupath">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-lg-8 pt-80">
+          <div class="wrap-blog">
+            <div class="row">
+              <div class="col-md-12 col-lg-12">
+                <div class="wrapper targetDiv sec-grad-white-to-green">
+                  <h3>{{post.post_name}}</h3>
+                  <p>{{post.company_name}}</p>
+                  <div class="row">
+                    <div class="col-md-12 pt-4">
+                      <div class="table-responsive-lg">
+                        <table class="table compare">
+                          <thead>
+                            <tr>
+                              <td>Vacency</td>
+                              <td></td>
+                              <td></td>
+                              <td>{{post.vacency}}</td>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td> Job Location</td>
+                              <td></td>
+                              <td></td>
+                              <td>
+                                {{post.job_location}}
+                              </td>
+                            </tr>
+                            
+                          </tbody>
+						  <tbody>
+                            <tr>
+                              <td> Salary</td>
+                              <td></td>
+                              <td></td>
+                              <td>
+                                {{post.salary}}
+                              </td>
+                            </tr>
+                            
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                    <div class="col-md-12 pt-4">
+                      <div class="cd-filter-block">
+                        <h4>Job Context</h4>
+                        <div class="radio-group radios-filter cd-filter-content list">
+                          <div class="table-responsive-sm">
+                            <p> {{post.job_context|safe}}</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+					<div class="col-md-12 pt-4">
+                      <div class="cd-filter-block">
+                        <h4>Education Requirment</h4>
+                        <div class="radio-group radios-filter cd-filter-content list">
+                          <div class="table-responsive-sm">
+                            <p> {{post.education_requirment|safe}}</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+					<div class="col-md-12 pt-4">
+                      <div class="cd-filter-block">
+                        <h4>Experience Requirment</h4>
+                        <div class="radio-group radios-filter cd-filter-content list">
+                          <div class="table-responsive-sm">
+                            <p> {{post.experience_requirment|safe}}</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+					<div class="col-md-12 pt-4">
+                      <div class="cd-filter-block">
+                        <h4>Additional Requirment</h4>
+                        <div class="radio-group radios-filter cd-filter-content list">
+                          <div class="table-responsive-sm">
+                            <p> {{post.additional_requirment|safe}}</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+					<div class="col-md-12 pt-4">
+                      <div class="cd-filter-block">
+                        <h4>Job benifit</h4>
+                        <div class="radio-group radios-filter cd-filter-content list">
+                          <div class="table-responsive-sm">
+                            <p> {{post.other_benifit_requirment|safe}}</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+					
+					
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- sidebar -->
+        <div class="col-md-12 col-lg-4 ">
+          <aside id="sidebar" class="mt-80 sidebar sec-bg1" >
+            <div class="ordersummary mt-0">
+              <h4>Want To Apply ?</h4>
+              <div class="table-responsive-lg">
+                <table class="table">
+                  <tbody>
+                    <tr>
+                      <td><div class="title-table">Deadline</div></td>
+                      <td>{{post.deadline}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+				<form method="POST">{% csrf_token %}
+          
+          <input type="number" name="expected_salary" placeholder="Expected Salary" required><br><br>
+          <button type="submit" class="btn btn-default-yellow-fill mb-3">Apply <i class="fas fa-arrow-alt-circle-right"></i></button>
+				</form>
+				
+				
+              </div>
+            </div>
+            
+          </aside>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--
+  *******************
+  HELP
+  *******************
+  -->
+  <section class="services help pt-4 pb-80">
+    <div class="container">
+      <div class="service-wrap">
+        <div class="row">
+          <div class="col-sm-12 col-md-6 col-lg-4">
+            <div class="help-container">
+              <a href="javascript:void(Tawk_API.toggle())" class="help-item">
+                <div class="img">
+                  <img class="svg ico" src="{% static 'web/fonts/svg/livechat.svg" height="65" alt="">
+                </div>
+                <div class="inform">
+                  <div class="title">Live Chat</div>
+                  <div class="description">Lorem Ipsum is simply dummy text printing.</div>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-6 col-lg-4">
+            <div class="help-container">
+              <a href="contact.html" class="help-item">
+                <div class="img">
+                  <img class="svg ico" src="{% static 'web/fonts/svg/emailopen.svg" height="65" alt="">
+                </div>
+                <div class="inform">
+                  <div class="title">Send Ticket</div>
+                  <div class="description">Lorem Ipsum is simply dummy text printing.</div>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-6 col-lg-4">
+            <div class="help-container">
+              <a href="knowledgebase.html" class="help-item">
+                <div class="img">
+                  <img class="svg ico" src="{% static 'web/fonts/svg/book.svg" height="65" alt="">
+                </div>
+                <div class="inform">
+                  <div class="title">Knowledge base</div>
+                  <div class="description">Lorem Ipsum is simply dummy text printing.</div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--
+  *******************************
+  SMALL MODAL
+  *******************************
+  -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title"><b>Remove Item!</b></h4>
+        </div>
+        <div class="modal-body">
+          <p>Are you sure you want to remove this item from your cart?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default-fill " data-dismiss="modal">No</button>
+          <button type="button" class="btn btn-default-purple-fill" data-dismiss="modal">Yes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--
+  *******************************
+  UPLOADED FOOTER FROM FOOTER.HTML
+  *******************************
+  -->
+<footer id="footer"> </footer>
+<a href="#0" class="cd-top"> <i class="fas fa-angle-up"></i> </a>
+<script src="{% static 'web/js/jquery.min.js' %}"></script>
+<script src="{% static 'web/js/popper.min.js' %}"></script>
+<script src="{% static 'web/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'web/js/idangerous.swiper.min.js' %}"></script>
+<script src="{% static 'web/js/jquery.viewportchecker.min.js' %}"></script>
+<script src="{% static 'web/js/jquery.countdown.js' %}"></script>
+<script src="{% static 'web/js/jquery.magnific-popup.min.js' %}"></script>
+<script src="{% static 'web/js/slick.min.js' %}"></script>
+<script src="{% static 'web/js/owl.carousel.min.js' %}"></script>
+<script src="{% static 'web/js/isotope.min.js' %}"></script>
+<script src="{% static 'web/js/filter.js' %}"></script>
+<script src="{% static 'web/js/sidebar.js' %}"></script>
+<script src="{% static 'web/js/scripts.js' %}"></script>
+</body>
+
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% load staticfiles %}
+    <title>Antler</title>
+    <meta name="description" content="">
+    <link href="{% static 'web/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'web/fonts/fontawesome/css/all.css' %}" rel="stylesheet">
+    <link href="{% static 'web/fonts/cloudicon/cloudicon.css' %}" rel="stylesheet">
+    <link href="{% static 'web/fonts/opensans/opensans.css' %}" rel="stylesheet">
+    <link href="{% static 'web/css/filter.css' %}" rel="stylesheet">
+    <link href="{% static 'web/img/favicon.ico' %}" rel="shortcut icon">
+    <link href="{% static 'web/css/style.css' %}" rel="stylesheet">
+    <!-- Custom color styles -->
+    <link href="{% static 'web/css/colors/pink.css' %}" rel="stylesheet" title="pink"/>
+    <link href="{% static 'web/css/colors/blue.css' %}" rel="stylesheet" title="blue"/>
+    <link href="{% static 'web/css/colors/green.css' %}" rel="stylesheet" title="green"/>
+  </head>
+  <body>
+   
+    <!--
+    *******************
+    FULL COUNTDOWN PAGE
+    *******************
+    -->
+    <div class="fullrock config sec-bg2 motpath">
+      <a onclick="window.history.go(-1); return false;" class="closebtn">
+        <img class="svg closer bg-transparent" src="fonts/svg/close.svg" alt="">
+      </a>
+      <section class="fullrock-content">
+        <div class="container">
+          <a href="/"><img class="svg logo-menu" src="img/logo-light.svg" alt="Home"></a>
+          <div class="sec-main sec-bg1 tabs mb-100">
+            <div class="randomline">
+              <div class="bigline"></div>
+              <div class="smallline"></div>
+            </div>
+            <h3>Login </h3>
+            <p class="mb-5">If you are a returning applicant, please Login if not, create a new account.</p>
+            {% if messages %}
+									<ul class="messages">
+										{% for message in messages %}
+										<center><li{% if message.tags %} class="{{ message.tags }}"{% endif %}><h4 style="color:green">{{ message }}</h4></li>
+										{% endfor %}
+											
+									</ul>
+						{% endif %}
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="table tabs-item active">
+                  <div class="cd-filter-block mb-0">
+                    <h4 class="m-0">Existing Applicant Login</h4>
+                    <div class="cd-filter-content">
+                      <form  method="POST" class="comments-form">{% csrf_token %}
+                        <div class="row">
+                          <div class="col-md-6">
+                            <label><i class="fas fa-envelope"></i></label>
+                            <input type="email"  placeholder="Enter email" name="email" required>
+                          </div>
+                          <div class="col-md-6">
+                            <label><i class="fas fa-lock"></i></label>
+                            <input type="password"  placeholder="Password" name="password" required>
+                          </div>
+                          <div class="col-md-12 mt-5">
+                            <button type="submit" class="btn btn-default-yellow-fill mt-0 mb-3 mr-3">Login <i class="fas fa-lock"></i>
+                            </button>
+                            <a href="/cv-create" class="golink mr-3">Create a new account?</a>
+                            <ul class="list d-inline">
+                              
+                            </ul>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+                
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <!--
+      *******************************
+      COLORS
+      *******************************
+      -->
+      <section>
+          <ul class="color-scheme">            
+            <li class="pink"><a href="#" data-rel="pink" class="styleswitch"></a></li>
+            <li class="blue"><a href="#" data-rel="blue" class="styleswitch"></a></li>
+            <li class="green"><a href="#" data-rel="green" class="styleswitch"></a></li>
+          </ul> 
+      </section>
+      <script src="{% static 'web/js/jquery.min.js' %}"></script>
+      <script src="{% static 'web/js/bootstrap.min.js' %}"></script>
+      <script src="{% static 'web/js/jquery.countdown.js' %}"></script>
+      <script src="{% static 'web/js/jquery.magnific-popup.min.js' %}"></script>
+      <script src="{% static 'web/js/slick.min.js' %}"></script>
+      <script src="{% static 'web/js/owl.carousel.min.js' %}"></script>
+      <script src="{% static 'web/js/isotope.min.js' %}"></script>
+      <script src="{% static 'web/js/filter.js' %}"></script>
+      <script src="{% static 'web/js/scripts.js' %}"></script>
+    </body>
+  
+</html>

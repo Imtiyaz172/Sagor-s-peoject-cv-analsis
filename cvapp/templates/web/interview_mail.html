@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% load static %}
+    {% load data_load %}
+    <title>CV Analysis</title>
+    <meta name="description" content="">
+    <link href="{% static 'web/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'web/fonts/cloudicon/cloudicon.css' %}" rel="stylesheet">
+    <link href="{% static 'web/fonts/fontawesome/css/all.css' %}" rel="stylesheet">
+    <link href="{% static 'web/fonts/opensans/opensans.css' %}" rel="stylesheet">
+    <link href="{% static 'web/css/owl.carousel.css' %}" rel="stylesheet">
+    <link href="{% static 'web/css/idangerous.swiper.css' %}" rel="stylesheet">
+    <link href="{% static 'web/css/magnific-popup.css' %}" rel="stylesheet">
+    <link href="{% static 'web/img/favicon.ico' %}" rel="shortcut icon">
+    <link href="{% static 'web/css/filter.css' %}" rel="stylesheet">
+    <link href="{% static 'web/css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'web/css/slick.css' %}" rel="stylesheet">
+    <!-- Custom color styles -->
+    <link href="{% static 'web/css/colors/pink.css' %}" rel="stylesheet" title="pink"/>
+    <link href="{% static 'web/css/colors/blue.css' %}" rel="stylesheet" title="blue"/>
+    <link href="{% static 'web/css/colors/green.css' %}" rel="stylesheet" title="green"/>
+  </head>
+  <body>
+
+    <!--
+    *******************************
+    UPLOADED MENU FROM HEADER.HTML
+    *******************************
+    -->
+  <header id="header"> </header>
+  <!--
+  *******************
+  BANNER
+  *******************
+  -->
+ 
+
+  <section id="ticket" class="exapath pb-80" style="padding-top:165px">
+    <div class="container">
+      <div class="sec-main sec-up mb-0 sec-bg1">
+        <div class="randomline">
+          <div class="bigline"></div>
+          <div class="smallline"></div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 col-lg-12 cd-filter-block mb-0">
+            <div class="form-contact cd-filter-content p-0 sec-bx">
+              <h2 class="section-heading mb-1">Write subject and massage to send massage</h2>
+              
+              <form  method="POST">{% csrf_token %}
+                <div class="row">
+                  
+                  <div class="col-md-6">
+                    <label><i class="fas fa-file-alt"></i></label>
+                    <input id="subject" type="text" name="subject" placeholder="Subject" required>
+                  </div>
+                  <div class="col-md-6">
+                    
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="form-group mt-4">
+                      <textarea id="message" name="message" class="form-control" rows="5" placeholder="Message..."></textarea>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    
+                  </div>
+                  <div class="col-md-6 mt-5">
+                    
+                    <button type="submit" class="btn btn-default-yellow-fill float-left mr-3">Send Mail</button>
+                    
+                  </div>
+                  
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--
+  *******************************
+  UPLOADED FOOTER FROM FOOTER.HTML
+  *******************************
+  -->
+<footer id="footer"> </footer>
+<a href="#0" class="cd-top"> <i class="fas fa-angle-up"></i> </a>
+<script src="{% static 'web/js/jquery.min.js' %}"></script>
+<script src="{% static 'web/js/popper.min.js' %}"></script>
+<script src="{% static 'web/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'web/js/idangerous.swiper.min.js' %}"></script>
+<script src="{% static 'web/js/jquery.viewportchecker.min.js' %}"></script>
+<script src="{% static 'web/js/jquery.countdown.js' %}"></script>
+<script src="{% static 'web/js/jquery.magnific-popup.min.js' %}"></script>
+<script src="{% static 'web/js/slick.min.js' %}"></script>
+<script src="{% static 'web/js/owl.carousel.min.js' %}"></script>
+<script src="{% static 'web/js/isotope.min.js' %}"></script>
+<script src="{% static 'web/js/scripts.js' %}"></script>
+</body>
+
+</html>

@@ -1,0 +1,103 @@
+{% extends 'admin_panel/base.html' %}
+{% load staticfiles %}
+{% load data_load %}
+{% block content %}	
+                <!-- begin app-main -->
+                <div class="app-main" id="main">
+                    <!-- begin container-fluid -->
+                    <div class="container-fluid">
+                        <!-- begin row -->
+                        <div class="row">
+                            <div class="col-md-12 m-b-30">
+                                <!-- begin page title -->
+                                <div class="d-block d-sm-flex flex-nowrap align-items-center">
+                                    <div class="page-title mb-2 mb-sm-0">
+                                        <h1>Job List</h1>
+                                    </div>
+                                    <div class="ml-auto d-flex align-items-center">
+                                        <nav>
+                                            <ol class="breadcrumb p-0 m-b-0">
+                                                <li class="breadcrumb-item">
+                                                    <a href="index.html"><i class="ti ti-home"></i></a>
+                                                </li>
+                                                <li class="breadcrumb-item">
+                                                    Pages
+                                                </li>
+                                                <li class="breadcrumb-item active text-primary" aria-current="page">Job
+                                                    List</li>
+                                            </ol>
+                                        </nav>
+                                    </div>
+                                </div>
+                                <!-- end page title -->
+                            </div>
+                        </div>
+                        <!-- end row -->
+                        <!-- start task list contant -->
+                        <div class="row">
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                <div class="card card-statistics task-list-contant">
+                                    <div class="card-body table-responsive p-0">
+                                        <table class="table task-table mb-0">
+                                            <thead class="border-bottom">
+                                                <tr>
+                                                    <td>
+                                                        <div >
+                                                            
+                                                            
+                                                                <span class="font-weight-bold">
+                                                                    Job name</span>
+                                                            </label>
+                                                        </div>
+                                                    </td>
+                                                    
+                                                    <td class="text-right">
+                                                        <div class="dropdown">
+                                                            <a class="btn font-20" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                <i class="fa fa-gear"></i>
+                                                            </a>
+            
+                                                        </div>
+                                                    </td>
+
+                                                </tr>
+                                            </thead>
+                                            <tbody class="text-muted mb-0">
+                                            {% for post in user_post %}
+                                            
+                                            
+                                                <tr>
+                                                    <td>
+                                                        <div >
+                                                            
+                                                            <a href="/interview/{{post.id}}/" style="color:Black" >{{post.post_name}}</a>
+                                                        </div>
+                                                    </td>
+                                                    
+                                                    <td class="text-right">
+                                                                    <a class="dropdown-item" href=""><i
+                                                                        class="ti ti-trash pr-2 text-danger"></i>
+                                                                    Delete post</a>
+                                                                    <a class="dropdown-item" href=""><i
+                                                                        class="ti ti-pencil pr-2 text-primary"></i>
+                                                                    edit post</a>
+                                                    </td>
+                                                </tr>
+                                                
+                                                {% endfor %}
+                                                
+                                                
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end task list contant -->
+                    </div>
+                    <!-- end container-fluid -->
+                </div>
+                <!-- end app-main -->
+            </div>
+            <!-- end app-container -->
+{% endblock %}

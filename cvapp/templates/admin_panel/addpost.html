@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <title>Mentor - Bootstrap 4 Admin Dashboard Template</title>
+    <meta charset="utf-8" />
+    {% load staticfiles %}
+    {% load data_load %}
+    {% load static %}
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="Admin template that can be used to build dashboards for CRM, CMS, etc." />
+    <meta name="author" content="Potenza Global Solutions" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- app favicon -->
+    <link rel="shortcut icon" href="assets/img/favicon.ico">
+    <!-- google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <!-- plugin stylesheets -->
+    <link rel="stylesheet" type="text/css" href="{% static 'admin/assets/css/vendors.css' %}" />
+    <script src="//cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
+    <!-- app style -->
+    <link rel="stylesheet" type="text/css" href="{% static 'admin/assets/css/style.css' %}" />
+</head>
+
+<body class="bg-white">
+    <!-- begin app -->
+    <div class="app">
+        <!-- begin app-wrap -->
+        <div class="app-wrap">
+            <!-- begin pre-loader -->
+            <div class="loader">
+                <div class="h-100 d-flex justify-content-center">
+                    <div class="align-self-center">
+                        <img src="assets/img/loader/loader.svg" alt="loader">
+                    </div>
+                </div>
+            </div>
+            <!-- end pre-loader -->
+
+            <!--start login contant-->
+            <div class="app-contant">
+                <div class="bg-white">
+                    <div class="container-fluid p-0">
+                        <div class="row no-gutters">
+                            <div class="col-sm-12 col-lg-12 col-xxl-12  align-self-center order-12 order-sm-12">
+                                <div class="d-flex align-items-center ">
+                                    <div class="register p-5">
+                                        <h1 class="mb-2">We are Mentor</h1>
+                                        <p>Welcome, Please create your account.</p>
+                                        <form method="POST" class="mt-2 mt-sm-5">{% csrf_token %}
+                                            	<p style="color:green">Job Information.</p>
+											<div class="row">
+										
+                                                <div class="col-12 col-sm-6">
+                                                    <div class="form-group">
+                                                        <label class="control-label">Post Name*</label>
+                                                        <input name="post_name" type="text" class="form-control" placeholder="Post Name*" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-sm-6">
+                                                    <label class="control-label">Category*</label>
+                                                    <select class="js-basic-single form-control" name="category_name">
+                                                        {% for cat in jobcat|jobcatreg %}
+                                                            <option value="{{cat.id}}">{{cat.category_name}}</option>
+                                                        {% endfor %}
+                                                    </select>
+                                               
+                                                </div>
+                                                <div class="col-12 col-sm-6">
+                                                    <div class="form-group">
+                                                        <label class="control-label">Company Name*</label>
+                                                        <input name="company_name" type="text" class="form-control" placeholder="Company Name" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-sm-6">
+                                                    <div class="form-group">
+                                                        <label class="control-label">Vacancy*</label>
+                                                        <input name="vacency" type="text" class="form-control" placeholder="Vacancy" />
+                                                    </div>
+                                                </div>
+												<div class="col-12 col-sm-6">
+                                                    <div class="form-group">
+                                                        <label class="control-label">Workplace*</label>
+                                                        <input name="workplace" type="text" class="form-control" placeholder="Workplace" />
+                                                    </div>
+                                                </div>
+												<div class="col-12 col-sm-6">
+                                                    <div class="form-group">
+                                                        <label class="control-label">Job Location*</label>
+                                                        <input name="job_location" type="text" class="form-control" placeholder="Job Location" />
+                                                    </div>
+                                                </div>
+
+												<div class="col-12 col-sm-6">
+                                                    <div class="form-group">
+                                                        <label class="control-label">Salary*</label>
+                                                        <input name="salary" type="text" class="form-control" placeholder="Salary" />
+                                                    </div>
+                                                </div>
+											
+												<div class="col-12 col-sm-12">
+                                                    
+                                                   <div class="card-body">
+														
+														<label class="control-label">Job Context</label>
+														<textarea id="editor1" name="job_context" class="form-control" rows="10"></textarea>
+													</div>
+                                            
+                                                </div>
+												<div class="col-12 col-sm-12">
+                                                    
+                                                   <div class="card-body">
+														
+														<label class="control-label">Educational requirment</label>
+														<textarea id="editor2" name="education_requirment" class="form-control" rows="3"></textarea>
+													</div>
+                                            
+                                                </div>
+												<div class="col-12 col-sm-12">
+                                                    
+                                                   <div class="card-body">
+														
+														<label class="control-label">Experience requirment</label>
+														<textarea id="editor3" name="experience_requirment" class="form-control" rows="3"></textarea>
+													</div>
+                                            
+                                                </div>
+												<div class="col-12 col-sm-12">
+                                                    
+                                                   <div class="card-body">
+														
+														<label class="control-label">Additional requirment</label>
+														<textarea id="editor4" id="summernote" name="additional_requirment" class="form-control" rows="3"></textarea>
+													</div>
+                                            
+                                                </div>
+												
+												
+											
+											
+											
+											
+											<div class="col-12 col-sm-12">
+                                                    
+                                                   <div class="card-body">
+														
+														<label class="control-label">Other benifit requirment</label>
+														<textarea id="editor5" rows="10" cols="80" name="other_benifit_requirment" class="form-control" rows="3"></textarea>
+													</div>
+                                            
+                                                </div>
+											<div class="col-12 col-sm-12">
+                                                   <div class="card card-statistics mb-30">
+													<div class="card-body datepicker-form">
+														<div class="card-heading">
+															<h4 class="card-title">Application Deadline</h4>
+														</div>
+														<div class="input-group date display-years" data-date-format="dd-mm-yyyy" data-date="14-06-2018">
+															<input name="deadline"  class="form-control" type="text" placeholder="12-12-2018">
+															<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+														</div>
+													</div>
+												</div>
+                                            
+                                                </div>
+												
+												
+												
+											
+											<div class="row">
+                                                <div class="col-12">
+                                                    <div class="form-check">
+                                                        <input name="" class="form-check-input" type="checkbox" id="gridCheck" required>
+                                                        <label class="form-check-label" for="gridCheck">
+                                                            I accept terms & policy
+                                                        </label>
+                                                    </div>
+                                                </div>
+												
+                                                <div class="col-12 mt-3">
+                                                    <button class="btn btn-primary text-uppercase">Post </button>
+                                                </div>
+                                                
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end app-wrap -->
+    </div>
+    <!-- end app -->
+
+
+            
+    <script src="{% static 'admin/assets/js/vendors.js' %}"></script>
+
+    <!-- custom app -->
+    <script src="{% static 'admin/assets/js/app.js' %}"></script>
+
+     <script>
+                // Replace the <textarea id="editor1"> with a CKEditor 4
+                // instance, using default configuration.
+                CKEDITOR.replace( 'editor1' );
+            </script>
+     <script>
+                // Replace the <textarea id="editor1"> with a CKEditor 4
+                // instance, using default configuration.
+                CKEDITOR.replace( 'editor2' );
+            </script>
+     <script>
+                // Replace the <textarea id="editor1"> with a CKEditor 4
+                // instance, using default configuration.
+                CKEDITOR.replace( 'editor3' );
+            </script>
+     <script>
+                // Replace the <textarea id="editor1"> with a CKEditor 4
+                // instance, using default configuration.
+                CKEDITOR.replace( 'editor4' );
+            </script>
+     <script>
+                // Replace the <textarea id="editor1"> with a CKEditor 4
+                // instance, using default configuration.
+                CKEDITOR.replace( 'editor5' );
+            </script>
+</body>
+
+</html>

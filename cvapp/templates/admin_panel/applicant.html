@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <title>Cv Create</title>
+    {% load staticfiles %}
+    {% load data_load %}
+    {% load static %}
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="Admin template that can be used to build dashboards for CRM, CMS, etc." />
+    <meta name="author" content="Potenza Global Solutions" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- app favicon -->
+    <link rel="shortcut icon" href="assets/img/favicon.ico">
+    <!-- google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <!-- plugin stylesheets -->
+    <link rel="stylesheet" type="text/css" href="{% static 'admin/assets/css/vendors.css' %}" />
+    <!-- app style -->
+    <link rel="stylesheet" type="text/css" href="{% static 'admin/assets/css/style.css' %}" />
+</head>
+
+<body class="bg-white">
+    <!-- begin app -->
+    <div class="app">
+        <!-- begin app-wrap -->
+        <div class="app-wrap">
+            <!-- begin pre-loader -->
+            {% comment %} <div class="loader">
+                <div class="h-100 d-flex justify-content-center">
+                    <div class="align-self-center">
+                        <img src="{% static 'admin/assets/img/loader/loader.svg' %}" alt="loader">
+                    </div>
+                </div>
+            </div> {% endcomment %}
+            <!-- end pre-loader -->
+
+            <!--start login contant-->
+            <div class="app-contant">
+                <div class="bg-white">
+                    <div class="container-fluid p-0">
+                        <div class="row no-gutters">
+                            <div class="col-sm-12 col-lg-12 col-xxl-12  align-self-center order-12 order-sm-12">
+                                <div class="d-flex align-items-center ">
+                                    <div class="register p-5">
+                                        <h1 class="mb-2">Create CV</h1>
+                                        <p>Welcome, Please create your account.</p>
+                                        <form action="" method="POST" enctype="multipart/form-data" class="mt-2 mt-sm-5">{% csrf_token %}
+                                            	<p style="color:green">Persional Information.</p>
+											<div class="row">
+										
+                                                <div class="col-12 col-sm-6">
+                                                    <div class="form-group">
+                                                        <label class="control-label">First Name*</label>
+                                                        <input name="first_name" type="text"  class="form-control" placeholder="First Name" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-sm-6">
+                                                    <div class="form-group">
+                                                        <label class="control-label">Last Name*</label>
+                                                        <input name="last_name" type="text" class="form-control" placeholder="Last Name" />
+                                                    </div>
+                                                </div>
+												<div class="col-12 col-sm-6">
+                                                    <div class="form-group">
+                                                        <label class="control-label">Father Name*</label>
+                                                        <input name="father_name" type="text" class="form-control" placeholder="First Name" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-sm-6">
+                                                    <div class="form-group">
+                                                        <label class="control-label">Mother Name*</label>
+                                                        <input name="mother_name" type="text" class="form-control" placeholder="Last Name" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-sm-6">
+                                                    <div class="form-group">
+                                                        <label class="control-label">Image*</label>
+                                                        <input type="file" name="image" class="form-control" alt="Submit" width="48" height="48">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-sm-6">
+                                                    
+                                                </div>
+												<div class="col-12 col-sm-4">
+												<div class="card card-statistics mb-30">
+													<div class="card-body datepicker-form">
+														<div class="card-heading">
+															<h4 class="card-title">Date of Birth </h4>
+														</div>
+														<div class="input-group date display-years" data-date-format="dd-mm-yyyy" data-date="14-06-2018">
+															<input name="date_of_birth" class="form-control" type="text" placeholder="12-12-2018">
+															<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+														</div>
+													</div>
+												</div>
+												</div>
+												<div class="col-12 col-sm-2">
+											<div class="col-form-label col-sm-3 pt-2" style="color:black">Gender</div>
+											<div class="card-body">
+
+                                                <div class="form-group mb-0">
+                                                    <select class="js-basic-single form-control" name="gender">
+                                                        {% for gender in gender|gender_reg %}
+                                                            <option value="{{gender.id}}">{{gender.gender}}</option>
+                                                        {% endfor %}
+                                                    </select>
+                                                </div>
+                                            </div>
+											</div>
+											<div class="col-12 col-sm-2">
+											<div class="col-form-label col-sm-3 pt-2"style="color:black">Status</div>
+											<div class="card-body">
+
+                                                <div class="form-group mb-0">
+                                                    <select class="js-basic-single form-control" name="reletion_status">
+                                                      {% for gender in status|status_reg %}
+                                                            <option value="{{gender.id}}">{{gender.reletion_status}}</option>
+                                                        {% endfor %}
+                                                       
+                                                        
+                                                    </select>
+                                                </div>
+                                            </div>
+											</div>
+											<div class="col-12 col-sm-2">
+											<div class="col-form-label col-sm-3 pt-2"style="color:black">Religion</div>
+											<div class="card-body">
+
+                                                <div class="form-group mb-0">
+                                                    <select class="js-basic-single form-control" name="religion">
+                                                        {% for gender in religion|religion_reg %}
+                                                            <option value="{{gender.id}}">{{gender.religion}}</option>
+                                                        {% endfor %}
+                                                       
+                                                        
+                                                    </select>
+                                                </div>
+                                            </div>
+											</div>
+											<div class="col-12 col-sm-2">
+											<div class="col-form-label col-sm-3 pt-2" style="color:black;">Nationality</div>
+											<div class="card-body">
+                                                <div class="form-group mb-0">
+                                                    <select class="js-basic-single form-control" name="nationality">
+                                                        {% for gender in nationality|nationality_reg %}
+                                                            <option value="{{gender.id}}">{{gender.nationality}}</option>
+                                                        {% endfor %}
+                                                           
+                                             
+                                                        
+                                                    </select>
+                                                </div>
+                                            </div>
+											</div>
+											<div class="col-12 col-sm-6">
+                                                    <div class="form-group">
+                                                        <label class="control-label">National ID</label>
+                                                        <input name="national_id" type="text" class="form-control" placeholder="National ID" />
+                                                    </div>
+                                                </div>
+												<div class="col-12 col-sm-6">
+                                                    <div class="form-group">
+                                                        <label class="control-label">Pasport ID</label>
+                                                        <input name="pasport_id" type="text" class="form-control" placeholder="Pasport ID" />
+                                                    </div>
+                                                </div>
+												<div class="col-12 col-sm-6">
+                                                    <div class="form-group">
+                                                        <label class="control-label">Birth Registration</label>
+                                                        <input name="birth_reg" type="text" class="form-control" placeholder="Birth Registration" />
+                                                    </div>
+                                                </div>
+												<div class="col-6">
+                                                    <div class="form-group">
+                                                        <label class="control-label">Username*</label>
+                                                        <input name="user_name" type="text" class="form-control" placeholder="Username" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-6">
+												
+                                                    <div class="form-group">
+                                                        <label class="control-label">Email*</label>
+                                                        <input name="email" type="email" class="form-control" placeholder="Email" />
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="col-6">
+                                                    <div class="form-group">
+                                                        <label class="control-label">Password*</label>
+                                                        <input name="password" type="password" class="form-control" placeholder="Password" />
+                                                    </div>
+                                                </div>
+												
+											</div>
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+										<p style="color:green"> Present Adress Information.</p>
+											<div class="row">
+											<div class="col-12">
+                                                   <div class="card-body">
+														<label class="control-label">Village/Town/Road No*</label>
+														<textarea name="present_address" class="form-control" rows="3"></textarea>
+													</div>
+                                            </div>
+											<div class="col-6">
+												
+                                                    <div class="form-group">
+                                                        <label class="control-label">District*</label>
+                                                        <input name="present_district" type="text" class="form-control" placeholder="District" />
+                                                    </div>
+                                                </div>
+												<div class="col-6">
+												
+                                                    <div class="form-group">
+                                                        <label class="control-label">P.S/Upazila*</label>
+                                                        <input name="present_upazila" type="text" class="form-control" placeholder="Upazila" />
+                                                    </div>
+                                                </div>
+												<div class="col-6">
+												
+                                                    <div class="form-group">
+                                                        <label class="control-label">Post office</label>
+                                                        <input name="present_post" type="text" class="form-control" placeholder="Post" />
+                                                    </div>
+                                                </div>
+												<div class="col-6">
+												
+                                                    <div class="form-group">
+                                                        <label class="control-label">Post Code</label>
+                                                        <input name="present_post_code" type="text" class="form-control" placeholder="Post Code" />
+                                                    </div>
+                                                </div>
+												<div class="col-6">
+												
+                                                    <div class="form-group">
+                                                        <label class="control-label">Mobile No</label>
+                                                        <input name="mobile" type="text" class="form-control" placeholder="Mobile" />
+                                                    </div>
+                                                </div>
+											</div>
+											
+											
+											
+											
+											<p style="color:green"> Permanent Adress Information.</p>
+											<div class="form-check">
+                                                        <input name="same_as_present" class="form-check-input" type="checkbox" id="gridCheck1" required>
+                                                        <label class="form-check-label" for="gridCheck1">
+                                                            Same as present adress
+                                                        </label>
+                                                    </div>
+											<div class="row">
+											<div class="col-12">
+                                                   <div class="card-body">
+														<label class="control-label">Village/Town/Road No*</label>
+														<textarea name="permanent_address" class="form-control" rows="3"></textarea>
+													</div>
+                                            </div>
+											<div class="col-6">
+												
+                                                    <div class="form-group">
+                                                        <label class="control-label">District*</label>
+                                                        <input name="permanent_district" type="text" class="form-control" placeholder="District" />
+                                                    </div>
+                                                </div>
+												<div class="col-6">
+												
+                                                    <div class="form-group">
+                                                        <label class="control-label">P.S/Upazila*</label>
+                                                        <input name="permanent_upazila" type="text" class="form-control" placeholder="Upazila" />
+                                                    </div>
+                                                </div>
+												<div class="col-6">
+												
+                                                    <div class="form-group">
+                                                        <label class="control-label">Post office</label>
+                                                        <input name="permanent_post" type="text" class="form-control" placeholder="Post" />
+                                                    </div>
+                                                </div>
+												<div class="col-6">
+												
+                                                    <div class="form-group">
+                                                        <label class="control-label">Post Code</label>
+                                                        <input name="permanent_post_code" type="text" class="form-control" placeholder="Post Code" />
+                                                    </div>
+                                                </div>
+
+											</div>
+											
+											
+											
+											
+											<p style="color:green"> Academic Qualification Information.</p>
+											<p style="color:red"> SSC</p>
+											<div class="row">
+											
+											<div class="col-6">
+												<label class="control-label">Board</label>
+                                                    <div class="form-group mb-0">
+                                                    <select class="js-basic-single form-control" name="ssc_board">
+                                                        {% for gender in sscBoard|sscBoard_reg %}
+                                                            <option value="{{gender.id}}">{{gender.board_name}}</option>
+                                                        {% endfor %}
+
+                                                    </select>
+                                                </div>
+                                                </div>
+											<div class="col-6">
+												
+                                                    <div class="form-group">
+                                                        <label class="control-label">Roll No</label>
+                                                        <input name="ssc_roll" type="text" class="form-control" placeholder="roll" />
+                                                    </div>
+                                                </div>
+											<div class="col-6">
+												
+                                                    <div class="form-group">
+                                                        <label class="control-label">Result</label>
+                                                        <input name="ssc_result" type="text" class="form-control" placeholder="result" />
+                                                    </div>
+                                                </div>
+												
+											<div class="col-6">
+												
+                                                    <div class="form-group">
+                                                        <label class="control-label">Passing Year</label>
+                                                        <input name="ssc_year" type="text" class="form-control" placeholder="Year" />
+                                                    </div>
+                                                </div>
+												<div class="col-6">
+												<label class="control-label">Subject/Group</label>
+                                                    <div class="form-group mb-0">
+                                                    <select class="js-basic-single form-control" name="ssc_group">
+                                                     
+                                                        {% for gender in ssc_group|ssc_group_reg %}
+                                                            <option value="{{gender.id}}">{{gender.group_name}}</option>
+                                                        {% endfor %}
+ 
+                                             
+                                                        
+                                                    </select>
+                                                </div>
+                                                </div>
+												
+											
+											</div>
+											
+											
+											
+											<p style="color:red"> HSC/Diploma</p>
+											<div class="row">
+											
+											<div class="col-6">
+												<label class="control-label">Board</label>
+                                                    <div class="form-group mb-0">
+                                                    <select class="js-basic-single form-control" name="hsc_board">
+                                                        {% for gender in hscBoard|hscBoard_reg %}
+                                                            <option value="{{gender.id}}">{{gender.board_name}}</option>
+                                                        {% endfor %}
+                                                            
+                                                           
+                                             
+                                                        
+                                                    </select>
+                                                </div>
+                                                </div>
+											<div class="col-6">
+												
+                                                    <div class="form-group">
+                                                        <label class="control-label">Roll No</label>
+                                                        <input name="hsc_roll" type="text" class="form-control" placeholder="roll" />
+                                                    </div>
+                                                </div>
+											<div class="col-6">
+												
+                                                    <div class="form-group">
+                                                        <label class="control-label">Result</label>
+                                                        <input name="hsc_result" type="text" class="form-control" placeholder="result" />
+                                                    </div>
+                                                </div>
+												
+											<div class="col-6">
+												
+                                                    <div class="form-group">
+                                                        <label class="control-label">Passing Year</label>
+                                                        <input name="hsc_year" type="text" class="form-control" placeholder="Year" />
+                                                    </div>
+                                                </div>
+												<div class="col-6">
+												<label class="control-label">Subject/Group</label>
+                                                    <div class="form-group mb-0">
+                                                    <select class="js-basic-single form-control" name="hsc_group">
+                                                     
+                                                            {% for gender in hsc_group|hsc_group_reg %}
+                                                            <option value="{{gender.id}}">{{gender.group_name}}</option>
+                                                        {% endfor %}
+                                                           
+                                             
+                                                        
+                                                    </select>
+                                                </div>
+                                                </div>
+												
+											
+											</div>
+											
+											
+											<p style="color:red"> Graduation</p>
+											<div class="row">
+											
+											<div class="col-6">
+												<label class="control-label">Subject/Group</label>
+                                                    <div class="form-group mb-0">
+                                                    <select class="js-basic-single form-control" name="versity_group">
+                                                        {% for gender in VersitySubject|VersitySubject_reg %}
+                                                            <option value="{{gender.id}}">{{gender.department}}</option>
+                                                        {% endfor %}
+                                                            
+                                                           
+                                             
+                                                        
+                                                    </select>
+                                                </div>
+                                                </div>
+											<div class="col-6">
+												
+                                                    <div class="form-group">
+                                                        <label class="control-label">Roll No</label>
+                                                        <input name="versity_roll" type="text" class="form-control" placeholder="roll" />
+                                                    </div>
+                                                </div>
+											<div class="col-6">
+												
+                                                    <div class="form-group">
+                                                        <label class="control-label">Result</label>
+                                                        <input name="versity_result" type="text" class="form-control" placeholder="result" />
+                                                    </div>
+                                                </div>
+												
+											<div class="col-6">
+												
+                                                    <div class="form-group">
+                                                        <label class="control-label">Passing Year</label>
+                                                        <input name="versity_year" type="text" class="form-control" placeholder="Year" />
+                                                    </div>
+                                                </div>
+												<div class="col-6">
+												<label class="control-label">University</label>
+                                                    <div class="form-group mb-0">
+                                                    <select class="js-basic-single form-control" name="versity">
+                                                        {% for gender in Versity|Versity_reg %}
+                                                            <option value="{{gender.id}}">{{gender.versity_name}}</option>
+                                                        {% endfor %}
+                                                            
+                                                           
+                                             
+                                                        
+                                                    </select>
+                                                </div>
+                                                </div>
+												<div class="col-6">
+												<label class="control-label">Course Duration</label>
+                                                    <div class="form-group mb-0">
+                                                    <select class="js-basic-single form-control" name="state">
+                                                        {% for gender in VersityDuration|VersityDuration_reg %}
+                                                            <option value="{{gender.id}}">{{gender.duration}}</option>
+                                                        {% endfor %}
+                                                           
+                                                           
+                                             
+                                                        
+                                                    </select>
+                                                </div>
+                                                </div>
+												
+											
+											</div>
+											
+											
+											
+											
+											
+											
+											
+											<b style="color:Green"> Skill</b>
+											<div class="row">
+											
+											
+											<div class="col-12">
+												
+                                                    <div class="form-group">
+                                                        
+                                                        <input name="" type="text" class="bs-input" value="" data-role="tagsinput" placeholder="write and hit enter" />
+                                                    </div>
+                                                </div>
+												
+										
+												
+											
+											</div>
+											
+											
+											<b style="color:Green"> Employment-1</b>
+											<div class="row">
+											
+											
+											<div class="col-6">
+												
+                                                    <div class="form-group">
+                                                        <label class="control-label">Company Name</label>
+                                                        <input name="company_name1" type="text" class="form-control" placeholder="Company Name" />
+                                                    </div>
+                                                </div>
+												
+										<div class="col-6">
+												
+                                                    <div class="form-group">
+                                                        <label class="control-label">Company Business</label>
+                                                        <input name="company_business1" type="text" class="form-control" placeholder="Company Business" />
+                                                    </div>
+                                                </div>
+												
+										<div class="col-6">
+												
+                                                    <div class="form-group">
+                                                        <label class="control-label">Designation</label>
+                                                        <input name="company_designation1" type="text" class="form-control" placeholder="Designation" />
+                                                    </div>
+                                                </div>
+												
+										<div class="col-6">
+												
+                                                    <div class="form-group">
+                                                        <label class="control-label">Department </label>
+                                                        <input name="company_department1" type="text" class="form-control" placeholder="Department" />
+                                                    </div>
+                                                </div>
+												
+										
+												
+													
+										<div class="col-6">
+												
+                                                    <div class="form-group">
+                                                        <label class="control-label">Responsibilities  </label>
+                                                        <input name="company_responsibility1" type="text" class="form-control" placeholder="Responsibilities" />
+                                                    </div>
+                                                </div>
+												
+										
+												
+											
+											
+											<div class="col-6">
+												
+                                                    <div class="form-group">
+                                                        <label class="control-label">Employment Period  </label>
+                                                        <input name="company_emp_time1" type="text" class="form-control" placeholder="Employment Period  " />
+                                                    </div>
+                                                </div>
+												
+										
+												
+											
+											
+											<div class="col-6">
+												
+                                                    <div class="form-group">
+                                                        <label class="control-label">Company Location  </label>
+                                                        <input name="company_location1" type="text" class="form-control" placeholder="Location" />
+                                                    </div>
+                                                </div>
+												<div class="col-6">
+												<label class="control-label">Area of Experiences  </label>
+                                                    <div class="form-group">
+                                                        
+                                                        <input name="company_experience1" type="text" class="bs-input" value="" data-role="tagsinput" placeholder="Write and hit enter" />
+                                                    </div>
+                                                </div>
+												
+										
+												
+											
+											</div>
+											
+												
+										
+												<b style="color:Green"> Employment-2</b>
+											<div class="row">
+											
+											
+											<div class="col-6">
+												
+                                                    <div class="form-group">
+                                                        <label class="control-label">Company Name</label>
+                                                        <input name="company_name2" type="text" class="form-control" placeholder="Company Name" />
+                                                    </div>
+                                                </div>
+												
+										<div class="col-6">
+												
+                                                    <div class="form-group">
+                                                        <label class="control-label">Company Business</label>
+                                                        <input name="company_business2" type="text" class="form-control" placeholder="Company Business" />
+                                                    </div>
+                                                </div>
+												
+										<div class="col-6">
+												
+                                                    <div class="form-group">
+                                                        <label class="control-label">Designation</label>
+                                                        <input name="company_designation2" type="text" class="form-control" placeholder="Designation" />
+                                                    </div>
+                                                </div>
+												
+										<div class="col-6">
+												
+                                                    <div class="form-group">
+                                                        <label class="control-label">Department </label>
+                                                        <input name="company_department2" type="text" class="form-control" placeholder="Department" />
+                                                    </div>
+                                                </div>
+												
+										
+												
+													
+										<div class="col-6">
+												
+                                                    <div class="form-group">
+                                                        <label class="control-label">Responsibilities  </label>
+                                                        <input name="company_responsibility2" type="text" class="form-control" placeholder="Responsibilities" />
+                                                    </div>
+                                                </div>
+												
+										
+												
+											
+											
+											<div class="col-6">
+												
+                                                    <div class="form-group">
+                                                        <label class="control-label">Employment Period  </label>
+                                                        <input name="company_emp_time2" type="text" class="form-control" placeholder="Employment Period  " />
+                                                    </div>
+                                                </div>
+												
+										
+												
+											
+											
+											<div class="col-6">
+												
+                                                    <div class="form-group">
+                                                        <label class="control-label">Company Location  </label>
+                                                        <input name="company_location2" type="text" class="form-control" placeholder="Location" />
+                                                    </div>
+                                                </div>
+												<div class="col-6">
+												<label class="control-label">Area of Experiences  </label>
+                                                    <div class="form-group">
+                                                        
+                                                        <input name="company_experience2" type="text" class="bs-input" value="" data-role="tagsinput" placeholder="Write and hit enter" />
+                                                    </div>
+                                                </div>
+												
+										
+												
+											
+											</div>
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											<div class="row">
+                                                <div class="col-12">
+                                                    <div class="form-check">
+                                                        <input name="" class="form-check-input" type="checkbox" id="gridCheck" required>
+                                                        <label class="form-check-label" for="gridCheck">
+                                                            I accept terms & policy
+                                                        </label>
+                                                    </div>
+                                                </div>
+												
+                                                <div class="col-12 mt-3">
+                                                    <button class="btn btn-primary text-uppercase">Sign up</button>
+                                                </div>
+                                                <div class="col-12  mt-3">
+                                                    <p>Already have an account ?<a href="auth-login.html"> Sign In</a></p>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end app-wrap -->
+    </div>
+    <!-- end app -->
+
+
+
+    <!-- plugins -->
+    <script src="{% static 'admin/assets/js/vendors.js' %}"></script>
+
+    <!-- custom app -->
+    <script src="{% static 'admin/assets/js/app.js' %}"></script>
+</body>
+
+</html>
