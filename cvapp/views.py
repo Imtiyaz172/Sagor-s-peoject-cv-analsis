@@ -94,7 +94,7 @@ def applicationlist(request,id):
     applicant = models.user_application.objects.filter(jobpost_id = id, shortlist=False)
     if request.method == "POST":
         shortlist        = request.POST['shortlist']
-        models.user_application.objects.filter(id = id).update(shortlist=True)
+        models.user_application.objects.filter(id = id).update(shortlist=True).order_by("skill_match")
     context={
         'applicant':applicant,
     }

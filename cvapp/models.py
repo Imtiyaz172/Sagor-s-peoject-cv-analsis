@@ -222,6 +222,7 @@ class user_application(models.Model):
     applicant   = models.ForeignKey(applicant, on_delete=models.CASCADE,blank=True,null=True)
     expected_salary   = models.CharField(max_length=230,null=True,blank=True)
     add_date       = models.DateTimeField(auto_now_add = True)
+    skill_match       = models.IntegerField(default=0)
     shortlist         = models.BooleanField(default=False)
     interviewlist         = models.BooleanField(default=False)
     status         = models.BooleanField(default=True)

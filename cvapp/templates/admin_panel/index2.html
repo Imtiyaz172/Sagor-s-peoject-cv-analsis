@@ -41,6 +41,7 @@
                       <table class="table table-striped" id="table-1">
                         <thead>
                           <tr>
+                            <th>Skill Match</th>
                             <th>Name</th>
                             <th>Image</th>
                             <th>Nationality</th>
@@ -66,6 +67,7 @@
                         <tbody>
                           {% for aaplicant in applicant %}
                             <tr>
+                                <td style="font-weight: bold;color:green">{{aaplicant.skill_match}}%  </td>
                                 <td>{{aaplicant.applicant.first_name}}</td>
                                 <td>
                                     <img alt="image" src="/static/blogapp/media/{{aaplicant.applicant.image}}" width="35">
