@@ -47,6 +47,14 @@
                                 <div class="d-flex align-items-center ">
                                     <div class="register p-5">
                                         <h1 class="mb-2">We are Mentor</h1>
+                                        {% if messages %}
+									    <ul class="messages">
+										{% for message in messages %}
+										<center><li{% if message.tags %} class="{{ message.tags }}"{% endif %}><h4 style="color:green">{{ message }}</h4></li>
+										{% endfor %}
+											
+									</ul>
+									{% endif %}
                                         <p>Welcome, Please create your account.</p>
                                         <form method="POST" class="mt-2 mt-sm-5">{% csrf_token %}
                                             	<p style="color:green">Job Information.</p>

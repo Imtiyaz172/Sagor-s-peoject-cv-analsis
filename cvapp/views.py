@@ -222,7 +222,7 @@ def org_login(request):
             messages.warning(request, "Wrong Information")
             return render(request,'web/org_login.html')
         request.session['id'] = user.id
-        return redirect('/')
+        return redirect('/home')
     return render(request,'web/org_login.html')
 
 
@@ -377,6 +377,7 @@ def cvcreate(request):
         image = image,
 
             )
+        messages.success(request, "CV Has Been Created")
     return render(request,'admin_panel/applicant.html')
 
 def postjob(request):
@@ -415,7 +416,7 @@ def postjob(request):
             other_benifit_requirment = other_benifit_requirment,
             )
             messages.warning(request, "Circuler is Posted")
-            return redirect('/home')
+            return redirect('/post')
     else:
         return redirect('/org-login')
     return render(request,'admin_panel/addpost.html')

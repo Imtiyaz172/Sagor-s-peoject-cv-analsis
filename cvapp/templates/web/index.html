@@ -121,8 +121,13 @@
               <div class="title">I am an Applicant</div>
               
               <div class="price"><sup>350 get job<span class="period">/month</span></div>
+              {% if request.session.id %}
+              <a href="/applicant-logout" class="btn btn-default-yellow-fill">Logout</a>
+              {% else %}
+              
               <a href="/cv-create" class="btn btn-default-yellow-fill">Create CV</a>
               <a href="/applicant-login" class="btn btn-default-yellow-fill">Login</a>
+              {% endif %}
             </div>
             <ul class="list-info">
               <li><i class="icon-drives"></i> <span class="c-purple">EASY</span><br> <span>APPLY</span></li>
